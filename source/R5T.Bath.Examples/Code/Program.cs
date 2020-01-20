@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Threading;
 using System.Threading.Tasks;
 
 using Microsoft.Extensions.DependencyInjection;
 
+using R5T.Bath.Examples.Lib;
 
 
 namespace R5T.Bath.Examples
@@ -12,7 +12,12 @@ namespace R5T.Bath.Examples
     {
         static void Main(string[] args)
         {
-            ConsoleStandard.SubMain();
+            //Program.TestDispose();
+
+            Standard.SubMain();
+            //ConsoleStandard.SubMain();
+
+            //GC.WaitForFullGCComplete();
         }
 
         public static void SendHumanOutput(IServiceProvider serviceProvider)
@@ -33,6 +38,36 @@ namespace R5T.Bath.Examples
             humanOutput.WriteLine("3. Another line written synchronously.");
 
             task.Wait();
+        }
+
+        private static void TestDispose()
+        {
+            var serviceProvider = new ServiceCollection()
+                //.AddTransient<ITestDisposable, TestDisposable>()
+                //.AddSingleton<ITestDisposable, TestDisposable>()
+                .AddSingleton<TestDisposable>()
+                //.AddScoped<TestDisposable>()
+                //.AddTransient<TestDisposable>()
+                .BuildServiceProvider();
+
+            //var testService = serviceProvider.GetRequiredService<ITestDisposable>();
+            var testService = serviceProvider.GetRequiredService<TestDisposable>();
+
+            testService.A();
+
+            serviceProvider.Dispose();
+
+            //using (var serviceScope = serviceProvider.CreateScope())
+            //{
+            //    //var testService = serviceScope.ServiceProvider.GetRequiredService<ITestDisposable>();
+            //    var testService = serviceScope.ServiceProvider.GetRequiredService<TestDisposable>();
+
+            //    testService.A();
+
+            //    //serviceScope.Dispose();
+            //}
+
+            //GC.WaitForFullGCComplete();
         }
     }
 }

@@ -5,7 +5,7 @@ using R5T.Richmond;
 
 namespace R5T.Bath.Examples
 {
-    public static class ConsoleStandard
+    static class ConsoleStandard
     {
         public static void SubMain()
         {

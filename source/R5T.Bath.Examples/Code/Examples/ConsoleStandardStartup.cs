@@ -9,9 +9,9 @@ using R5T.Richmond;
 
 namespace R5T.Bath.Examples
 {
-    public class ConsoleStandardStartup : StartupBase
+    class ConsoleStandardStartup : StartupBase
     {
-        public ConsoleStandardStartup(ILogger<StartupBase> logger)
+        public ConsoleStandardStartup(ILogger<ConsoleStandardStartup> logger)
             : base(logger)
         {
         }
