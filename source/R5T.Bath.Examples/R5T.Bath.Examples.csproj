@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\R5T.Bath.Console.Standard\source\R5T.Bath.Console.Standard\R5T.Bath.Console.Standard.csproj" />
+    <ProjectReference Include="..\..\..\R5T.Bath.Standard\source\R5T.Bath.Standard\R5T.Bath.Standard.csproj" />
     <ProjectReference Include="..\..\..\R5T.Richmond\source\R5T.Richmond\R5T.Richmond.csproj" />
     <ProjectReference Include="..\R5T.Bath.Examples.Lib\R5T.Bath.Examples.Lib.csproj" />
   </ItemGroup>
