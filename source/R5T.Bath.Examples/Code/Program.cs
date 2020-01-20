@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 
 using R5T.Bath.Examples.Lib;
+using R5T.Richmond;
 
 
 namespace R5T.Bath.Examples
@@ -14,8 +15,11 @@ namespace R5T.Bath.Examples
         {
             //Program.TestDispose();
 
-            Standard.SubMain();
-            //ConsoleStandard.SubMain();
+            //Program.SendHumanOutput<StandardStartup>();
+            //Program.SendHumanOutput<ConsoleStandardStartup>();
+            //Program.SendHumanOutput<FileStandardStartup>();
+            //Program.SendHumanOutput<FileThessalonikiStandardStartup>();
+            Program.SendHumanOutput<FileChamaviaStandardStartup>();
 
             //GC.WaitForFullGCComplete();
         }
@@ -38,6 +42,15 @@ namespace R5T.Bath.Examples
             humanOutput.WriteLine("3. Another line written synchronously.");
 
             task.Wait();
+        }
+
+        public static void SendHumanOutput<TStartup>()
+            where TStartup: class, IStartup
+        {
+            using (var serviceProvider = ServiceProviderBuilder.NewUseStartup<TStartup>() as ServiceProvider)
+            {
+                Program.SendHumanOutput(serviceProvider);
+            }
         }
 
         private static void TestDispose()
