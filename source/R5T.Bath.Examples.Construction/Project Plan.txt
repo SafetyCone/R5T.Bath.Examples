@@ -1,0 +1,4 @@
+R5T.Bath.Examples.Construction - A construction console-app for the library R5T.Bath.Examples.
+
+Goals
+
