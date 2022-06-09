@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <ItemGroup>
     <ProjectReference Include="..\..\..\R5T.Bath.Console.Standard\source\R5T.Bath.Console.Standard\R5T.Bath.Console.Standard.csproj" />
     <ProjectReference Include="..\..\..\R5T.Bath.File.Chamavia.Standard\source\R5T.Bath.File.Chamavia.Standard\R5T.Bath.File.Chamavia.Standard.csproj" />
@@ -7,16 +6,15 @@
     <ProjectReference Include="..\..\..\R5T.Richmond\source\R5T.Richmond\R5T.Richmond.csproj" />
     <ProjectReference Include="..\R5T.Bath.Examples.Lib\R5T.Bath.Examples.Lib.csproj" />
   </ItemGroup>
-
   <ItemGroup>
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>1591;1573</NoWarn>
   </PropertyGroup>
-
 </Project>
