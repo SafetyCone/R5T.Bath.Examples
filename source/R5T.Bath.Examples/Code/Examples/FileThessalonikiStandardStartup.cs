@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 
 using R5T.Bath.File;
 using R5T.Bath.File.Default;
+using R5T.Bath.File.Thessaloniki;
 using R5T.Bath.File.Thessaloniki.Standard;
 using R5T.Lombardy;
 using R5T.Richmond;
